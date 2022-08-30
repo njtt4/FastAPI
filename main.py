@@ -4,6 +4,7 @@ from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 
 
+
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")
 app.mount("/static", StaticFiles(directory="static"), name="static")
@@ -25,7 +26,25 @@ posts = [
 ]
 
 @app.get("/")
-@app.getç("/home", response_class=HTMLResponse)
+@app.get("/home", response_class=HTMLResponse)
 async def home(request:Request):
     return templates.TemplateResponse("home.html", {"request": request, "posts": posts})
+
+
+@app.get("/about", response_class=HTMLResponse)
+async def home(request:Request):
+    return templates.TemplateResponse("about.html", {"request": request})
+
+
+@app.get("/login", response_class=HTMLResponse)
+async def home(request:Request):
+    return templates.TemplateResponse("login.html", {"request": request})
+
+
+@app.get("/register", response_class=HTMLResponse)
+async def home(request:Request):
+    return templates.TemplateResponse("register.html", {"request": request})
+
+
+
 
