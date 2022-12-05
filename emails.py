@@ -23,7 +23,7 @@ conf = ConnectionConfig(
 class EmailSchema(BaseModel):
     email: List[EmailStr]
 
-async def send_email(email : list, instance: User):
+async def send_email(email : List, instance: User):
 
     token_data = {
         "id" : instance.id,
@@ -43,12 +43,10 @@ async def send_email(email : list, instance: User):
                 <br>
                 <p>Thanks for choosing EasyShopas, please 
                 click on the link below to verify your account</p> 
-
                 <a style="margin-top:1rem; padding: 1rem; border-radius: 0.5rem; font-size: 1rem; text-decoration: none; background: #0275d8; color: white;"
                  href="http://localhost:8000/verification/?token={token}">
                     Verify your email
                 <a>
-
                 <p style="margin-top:1rem;">If you did not register for EasyShopas, 
                 please kindly ignore this email and nothing will happen. Thanks<p>
             </div>

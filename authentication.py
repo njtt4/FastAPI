@@ -54,6 +54,6 @@ async def token_generator(username: str, password: str):
         "username": user.username 
     }
 
-    token = jwt.encode(token_data, config_credentials(["SECRET"]))
+    token = jwt.encode(token_data, config_credentials["SECRET"])
 
     return token
